@@ -23,7 +23,8 @@ pipeline {
         stage('Download Code') {
             steps {
                 dir ("${WORKSPACE}/packer"){
-                    git branch: 'develop', credentialsId:'GithubToken', url: "https://github.com/sce81/pkr-build-${NAME}.git"
+                    //git branch: 'develop', credentialsId:'GithubToken', url: "https://github.com/sce81/pkr-build-${NAME}.git"
+                    git branch: 'main', credentialsId:'GithubToken', url: "https://github.com/alejandroyoung/packer-build-terraform-ec2.git"
                 }
             }
         }
