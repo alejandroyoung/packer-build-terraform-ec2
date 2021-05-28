@@ -32,7 +32,8 @@ pipeline {
             steps {
                 script{
                     dir ("${WORKSPACE}/packer"){
-                        sh "set +e; packer build -var 'jenkins_build_id=${env.BUILD_NUMBER}' -var 'app_version=${env.APP_VERSION}' . ; echo \$? > status"
+                        //sh "set +e; packer build -var 'jenkins_build_id=${env.BUILD_NUMBER}' -var 'app_version=${env.APP_VERSION}' . ; echo \$? > status"
+                        sh "set +e; packer build . ; echo \$? > status"
                         def exitCode = readFile('status').trim()
                         echo "Packer Build Exit Code: ${exitCode}"
                             if (exitCode == "0") {
