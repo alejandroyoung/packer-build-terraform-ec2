@@ -19,18 +19,18 @@ source "amazon-ebs" "main" {
   ssh_username  = "ec2-user"
   ssh_interface = "private_ip"
   ebs_optimized = true
-}
 
-vpc_filter {
-  filters = {
-    "tag:Name" : "testing-DEMO-vpc"
+  vpc_filter {
+    filters = {
+      "tag:Name" : "testing-DEMO-vpc"
+    }
   }
-}
 
-subnet_filter {
-  random = true
-  filters = {
-    "tag:Name" : "testing-DEMO-public-subnet*"
+  subnet_filter {
+    random = true
+    filters = {
+      "tag:Name" : "testing-DEMO-public-subnet*"
+    }
   }
 }
 
