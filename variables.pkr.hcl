@@ -17,5 +17,5 @@ variable "region" {
 
 locals {
   timestamp = regex_replace(timestamp(), "[- TZ:]", "")
-  ami_name  = "test"
+  ami_name  = "Terraform-Builder"
 }

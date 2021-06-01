@@ -1,6 +1,5 @@
 source "amazon-ebs" "main" {
-  #ami_name        = "${local.ami_name}-${var.jenkins_build_id}"
-  ami_name        = "${local.ami_name}-${var.jenkins_build_id}-${local.timestamp}"
+  ami_name        = "${local.ami_name}-${var.jenkins_build_id}"
   ami_description = "${var.name}-${var.env}-${local.timestamp}"
   instance_type   = var.instance_type
   region          = var.region
