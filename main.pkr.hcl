@@ -21,6 +21,19 @@ source "amazon-ebs" "main" {
   ebs_optimized = true
 }
 
+vpc_filter {
+  filters = {
+    "tag:Name" : "testing-DEMO-vpc"
+  }
+}
+
+subnet_filter {
+  random = true
+  filters = {
+    "tag:Name" : "testing-DEMO-public-subnet*"
+  }
+}
+
 build {
   sources = ["source.amazon-ebs.main"]
 
