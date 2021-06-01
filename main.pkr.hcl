@@ -32,6 +32,18 @@ source "amazon-ebs" "main" {
       "tag:Name" : "testing-DEMO-public-subnet*"
     }
   }
+
+  tags = {
+    Name           = local.ami_name
+    BuiltBy        = "Packer"
+    App            = var.name
+    AppVersion     = var.app_version
+    Environment    = var.env
+    SourceAMI      = "{{ .SourceAMIName }}"
+    ManagedBy      = "Rackspace"
+    JenkinsBuildID = var.jenkins_build_id
+  }
+
 }
 
 build {
