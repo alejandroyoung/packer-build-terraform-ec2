@@ -34,10 +34,10 @@ source "amazon-ebs" "main" {
   }
 
   tags = {
-    Name           = local.ami_name
-    BuiltBy        = "Packer"
-    App            = var.name
-    AppVersion     = var.app_version
+    Name    = local.ami_name
+    BuiltBy = "Packer"
+    App     = var.name
+    #AppVersion     = var.app_version
     Environment    = var.env
     SourceAMI      = "{{ .SourceAMIName }}"
     ManagedBy      = "Rackspace"
