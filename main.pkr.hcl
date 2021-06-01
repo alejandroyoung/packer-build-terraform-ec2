@@ -48,5 +48,12 @@ source "amazon-ebs" "main" {
 
 build {
   sources = ["source.amazon-ebs.main"]
-
+  provisioner "shell" {
+    inline = [
+      "sudo yum install -y git",
+      "wget --quiet -P /home/ec2-user/ https://releases.hashicorp.com/terraform/0.15.4/terraform_0.15.4_linux_amd64.zip",
+      "unzip /home/ec2-user/terraform_0.15.4_linux_amd64.zip",
+      "sudo mv /home/ec2-user/terraform /usr/local/bin"
+    ]
+  }
 }
