@@ -29,7 +29,7 @@ source "amazon-ebs" "main" {
   subnet_filter {
     random = true
     filters = {
-      "tag:Name" : "testing-DEMO-public-subnet*"
+      "tag:Name" : "testing-DEMO-private-subnet*"
     }
   }
 
